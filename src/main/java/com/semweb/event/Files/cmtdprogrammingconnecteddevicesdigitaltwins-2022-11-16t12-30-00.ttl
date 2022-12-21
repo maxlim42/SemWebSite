@@ -1,0 +1,11 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+<>      a                              <https://schema.org/Event> ;
+        <http://www.w3.org/Event/endDate>
+                "2022-11-16T14:00:00"^^xsd:dateTime ;
+        <http://www.w3.org/Event/startDate>
+                "2022-11-16T12:30:00"^^xsd:dateTime ;
+        <https://schema.org/additionalType>
+                <https://schema.org/EducationEvent> ;
+        <https://schema.org/location>  "Saint-Etienne" .

@@ -1,0 +1,12 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+<https://schema.org/Event/Les Chevaliers du Fiel - Travaux d'enfer/2023-02-25T20:00:00>
+        a                              <https://schema.org/Event> ;
+        <http://www.w3.org/Event/endDate>
+                "2023-02-25T23:30:00"^^xsd:dateTime ;
+        <http://www.w3.org/Event/startDate>
+                "2023-02-25T20:00:00"^^xsd:dateTime ;
+        <https://schema.org/additionalType>
+                <https://schema.org/TheaterEvent> ;
+        <https://schema.org/location>  "Chambery" .

@@ -1,0 +1,12 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+<https://schema.org/Event/Marché bio Albert Thomas/2022-12-07T07:00:00>
+        a                              <https://schema.org/Event> ;
+        <http://www.w3.org/Event/endDate>
+                "2022-12-07T12:00:00"^^xsd:dateTime ;
+        <http://www.w3.org/Event/startDate>
+                "2022-12-07T07:00:00"^^xsd:dateTime ;
+        <https://schema.org/additionalType>
+                <https://schema.org/FoodEvent> ;
+        <https://schema.org/location>  "Saint-Etienne" .

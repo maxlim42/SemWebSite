@@ -54,7 +54,7 @@ public class Convert {
 
             String fileName = eventName + "-" + startDate.replaceAll(":", "-") + ".ttl";
             try { 
-                FileWriter out = new FileWriter("Files/" + fileName.toLowerCase());
+                FileWriter out = new FileWriter("src/main/java/com/semweb/event/Files/" + fileName.toLowerCase());
                 model.write( out, "turtle" );
             } catch (IOException e) {
                 // TODO Auto-generated catch block
@@ -95,7 +95,7 @@ public class Convert {
 
         String fileName = name + "-" + startDate.replaceAll(":", "-") + ".ttl";
             try { 
-                FileWriter out = new FileWriter("Files/" + fileName.toLowerCase());
+                FileWriter out = new FileWriter("src/main/java/com/semweb/event/Files/" + fileName.toLowerCase());
                 model.write( out, "turtle" );
             } catch (IOException e) {
                 // TODO Auto-generated catch block

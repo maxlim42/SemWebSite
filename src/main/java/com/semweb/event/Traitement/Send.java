@@ -11,7 +11,7 @@ public class Send {
      */
     public static void TurtleFile() {
 
-        File folder = new File("Files");
+        File folder = new File("src/main/java/com/semweb/event/Files");
         File[] listOfFiles = folder.listFiles();
 
         for (File file : listOfFiles) {
@@ -19,7 +19,7 @@ public class Send {
                 String fileName = file.getName().replace(".ttl", "");
                                 String contentType = "\"Content-Type: text/turtle\"";
                 String slug = "\"Slug: " + fileName + "\"";
-                String calendarFile = "@Files/"+ file.getName(); 
+                String calendarFile = "@src/main/java/com/semweb/event/Files/"+ file.getName(); 
 
                 String[] command = {"curl", "-X", "POST", "-H", contentType, "-H", slug,"--data-binary", calendarFile, "https://territoire.emse.fr/ldp/maximeaurelien/", "-u", "ldpuser:LinkedDataIsGreat", "-v"};
                 
