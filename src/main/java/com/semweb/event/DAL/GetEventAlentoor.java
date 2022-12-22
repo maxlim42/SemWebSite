@@ -7,12 +7,12 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.semweb.event.Model.EventAlentoor;
+import com.semweb.event.Model.Event;
 
 
 public class GetEventAlentoor {
-    public static List<EventAlentoor> GetData(String url) {
-        List<EventAlentoor> eventsAlentoor = new ArrayList<EventAlentoor>();
+    public static List<Event> GetData(String url) {
+        List<Event> eventsAlentoor = new ArrayList<Event>();
 
         try {
             Document doc = Jsoup.connect(url).get();
@@ -21,7 +21,7 @@ public class GetEventAlentoor {
             Elements events = allEventHtml.select("div.item-spotlight");
 
             for (Element event : events) {
-                EventAlentoor eventAlentoor = new EventAlentoor();
+                Event eventAlentoor = new Event();
 
                 Element category = event.select("div.categories").first();
                 eventAlentoor.Categorie = category.text();

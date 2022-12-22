@@ -1,6 +1,6 @@
 package com.semweb.event.Model;
 
-public class EventAlentoor {
+public class Event {
     public String Name;
     public String Dates;
     public String Location;

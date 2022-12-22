@@ -1,7 +1,9 @@
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<>      a                              <https://schema.org/Event> ;
+<>      rdf:type                       <https://schema.org/Event> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "CM/TD Overview of Research, development and innovation activities / Professional insertion" ;
         <http://www.w3.org/Event/endDate>
                 "2022-09-23T10:15:00"^^xsd:dateTime ;
         <http://www.w3.org/Event/startDate>

@@ -7,6 +7,7 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.RDF;
+import org.apache.jena.vocabulary.RDFS;
 
 public class Convert {
 
@@ -45,6 +46,7 @@ public class Convert {
                     XSDGenericType.XSDdateTime);            
             ressource.addProperty(model.createProperty("https://schema.org/location"), "Saint-Etienne",
                     XSDGenericType.XSDstring);
+                    ressource.addProperty(RDFS.label, eventName);
             
             eventName = eventName.replaceAll("\\s+","");
             eventName = eventName.replaceAll(":", "-");
@@ -87,6 +89,7 @@ public class Convert {
                     XSDGenericType.XSDdateTime);
         ressource.addProperty(model.createProperty("https://schema.org/location"), location,
                     XSDGenericType.XSDstring);
+        ressource.addProperty(RDFS.label, name);
         name = name.replaceAll("\\s+","");
         name = name.replaceAll(":", "-");
         name = name.replaceAll("'", "");

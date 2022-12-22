@@ -9,8 +9,9 @@ import org.springframework.context.annotation.ComponentScan;
 
 import com.semweb.event.Controlleur.ControlleurPage;
 import com.semweb.event.DAL.GetEventAlentoor;
+import com.semweb.event.DAL.GetRDF;
 import com.semweb.event.DAL.ParseIcsFile;
-import com.semweb.event.Model.EventAlentoor;
+import com.semweb.event.Model.Event;
 import com.semweb.event.Traitement.Convert;
 import com.semweb.event.Traitement.Send;
 
@@ -32,11 +33,12 @@ public class EventApplication {
                 //TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            // List<EventAlentoor> eventsAlentoor =  GetEventAlentoor.GetData("https://www.alentoor.fr/saint-etienne/agenda");     
+            // List<Event> events =  GetEventAlentoor.GetData("https://www.alentoor.fr/saint-etienne/agenda");     
             Convert.CalendarToRDF(calendar +"\n");
             
             Send.TurtleFile();
-        }		
+        }	
+        GetRDF.GetFromDate();	
 	}
 
 }
