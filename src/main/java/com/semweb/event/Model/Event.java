@@ -5,4 +5,6 @@ public class Event {
     public String Dates;
     public String Location;
     public String Categorie;
+    public String StartDate;
+    public String EndDate;
 }
