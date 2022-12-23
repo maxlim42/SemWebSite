@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Mainpage.css">
+    <title>All Events</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> Name </th>
+        <th> Categorie </th>
+        <th> Location </th>
+        <th> StartDate </th>
+        <th> EndDate </th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="event : ${events}">
+            <td><span th:text="${event.Name}"> Name </span></td>
+            <td><span th:text="${event.Categorie}"> Categorie </span></td>
+            <td><span th:text="${event.Location}"> Location </span></td>
+            <td><span th:text="${event.StartDate}"> StartDate </span></td>
+            <td><span th:text="${event.EndDate}"> EndDate </span></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

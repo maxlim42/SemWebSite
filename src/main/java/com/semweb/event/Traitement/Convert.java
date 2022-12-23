@@ -46,7 +46,7 @@ public class Convert {
                     XSDGenericType.XSDdateTime);            
             ressource.addProperty(model.createProperty("https://schema.org/location"), "Saint-Etienne",
                     XSDGenericType.XSDstring);
-                    ressource.addProperty(RDFS.label, eventName);
+            ressource.addProperty(RDFS.label, eventName);
             
             eventName = eventName.replaceAll("\\s+","");
             eventName = eventName.replaceAll(":", "-");
@@ -65,8 +65,8 @@ public class Convert {
         }
 
         CreateEvent("Le plus grand cabaret du monde",  "TheaterEvent","2023-02-07T20:00:00", "2023-02-07T23:30:00", "Grenoble");
-        CreateEvent("Marché bio Albert Thomas",  "FoodEvent","2022-12-07T07:00:00", "2022-12-07T12:00:00", "Saint-Etienne");
-        CreateEvent("Soirée Big Band",  "MusicEvent","2022-12-16T20:30:00", "2022-12-16T23:30:00", "Saint-Etienne");
+        CreateEvent("Marche bio Albert Thomas",  "FoodEvent","2022-12-07T07:00:00", "2022-12-07T12:00:00", "Saint-Etienne");
+        CreateEvent("Soiree Big Band",  "MusicEvent","2022-12-16T20:30:00", "2022-12-16T23:30:00", "Saint-Etienne");
         CreateEvent("Les Chevaliers du Fiel - Travaux d'enfer",  "TheaterEvent","2023-02-25T20:00:00", "2023-02-25T23:30:00", "Chambery");
         
         // model.write(System.out, "turtle");
@@ -80,7 +80,7 @@ public class Convert {
             model.setNsPrefix("rdf", RDF.uri);
             model.setNsPrefix("xsd", "http://www.w3.org/2001/XMLSchema#");
 
-        Resource ressource = model.createResource("https://schema.org/Event/" + name + "/" + startDate);
+        Resource ressource = model.createResource("");
         ressource.addProperty(RDF.type, model.createProperty("https://schema.org/Event"));
         ressource.addProperty(model.createProperty("https://schema.org/additionalType"), model.createProperty("https://schema.org/" + type));
         ressource.addProperty(model.createProperty("http://www.w3.org/Event/startDate"), startDate,

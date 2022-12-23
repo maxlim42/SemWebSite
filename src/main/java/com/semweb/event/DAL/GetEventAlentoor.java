@@ -34,7 +34,7 @@ public class GetEventAlentoor {
 
                 Element dates = event.select("div.dates").first();
                 eventAlentoor.Dates = dates.text();
-                System.out.println(dates.text());
+//                System.out.println(dates.text());
                 eventsAlentoor.add(eventAlentoor);
             }
             // item-spotlight
