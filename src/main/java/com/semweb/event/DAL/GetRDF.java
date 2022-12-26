@@ -31,7 +31,7 @@ public class GetRDF {
                     String lastsubject = "";
                     Event event = new Event();
                     for (Object stat:stats) {
-                        System.out.println(stat);
+//                        System.out.println(stat);
                         String subject = stat.toString().split(",")[0].replace("[","").trim();
                         String predicate = stat.toString().split(",")[1].trim();
                         String object = stat.toString().split(",")[2].replace("]","").trim();
@@ -84,18 +84,42 @@ public class GetRDF {
                 model.close();
             }
         }
-
-        // try (RDFConnection conn = RDFConnection.connectPW(
-        //             "https://territoire.emse.fr/ldp/maximeaurelien/",
-        //             "ldpuser",
-        //             "LinkedDataIsGreat"
-        //     )) {
-        //         conn.delete();
-        // }
-
         return events;
     }
+    public static List<Event> GetEventSainte(){
+        List<Event> events = GetAllEvent();
+        List<Event> eventsSainte = events.stream().filter(o -> o.Location != null && o.Location.equals("Saint-Etienne")).toList();
+        return eventsSainte;
+    }
+    public static List<Event> GetEventNotInSainte(){
+        List<Event> events = GetAllEvent();
+        List<Event> eventsSainte = events.stream().filter(o ->o.Location != null && !o.Location.equals("Saint-Etienne")).toList();
+        return eventsSainte;
+    }
 
+    public static Event GetNextCourse(){
+
+        LocalDateTime now = LocalDateTime.now();
+        Event lesson = new Event();
+        lesson.StartDate = now;
+        List<Event> events = GetAllEvent();
+        List<Event> lessons = events.stream().filter(e-> e.Categorie != null && e.Categorie.equals("EducationEvent")).toList();
+        LocalDateTime bigger = now.plusDays(20);
+        for (Event l:lessons){
+            if(lesson.StartDate.isEqual(now))
+            {
+                lesson = l;
+            }
+
+            if(l.StartDate.isAfter(now)){
+                if(l.StartDate.isBefore(bigger)){
+                    bigger = l.StartDate;
+                    lesson = l;
+                }
+            }
+        }
+        return lesson;
+    }
     public static void Delete()
     {
      try (RDFConnection conn = RDFConnection.connectPW(

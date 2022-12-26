@@ -38,7 +38,7 @@ public class EventApplication {
             
             Send.TurtleFile();
         }	
-        GetRDF.GetAllEvent();
+        GetRDF.GetNextCourse();
 	}
 
 }

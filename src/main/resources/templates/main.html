@@ -11,5 +11,34 @@
 <form th:action="@{allEvents/}" th:method="post">
     <input id="button" type="submit" value="Tous les evenements">
 </form>
+<form th:action="@{EventsSainte/}" th:method="post">
+    <input id="button2" type="submit" value="Sainté events">
+</form>
+<form th:action="@{NotEventsSainte/}" th:method="post">
+    <input id="button3" type="submit" value="Events pas a sainte">
+</form>
+
+
+<table>
+    <thead>
+    <tr>
+        <th> Name </th>
+        <th> Categorie </th>
+        <th> Location </th>
+        <th> StartDate </th>
+        <th> EndDate </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="l : ${lesson}">
+        <td><span th:text="${l.Name}"> Name </span></td>
+        <td><span th:text="${l.Categorie}"> Categorie </span></td>
+        <td><span th:text="${l.Location}"> Location </span></td>
+        <td><span th:text="${l.StartDate}"> StartDate </span></td>
+        <td><span th:text="${l.EndDate}"> EndDate </span></td>
+    </tr>
+    </tbody>
+</table>
+
 </body>
 </html>

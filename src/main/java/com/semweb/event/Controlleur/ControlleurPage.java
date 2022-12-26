@@ -6,14 +6,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
 public class ControlleurPage {
     
     @RequestMapping("/")
-    public String mainredirection()
-    {
+    public String mainredirection(Model model){
+        Event lesson = GetRDF.GetNextCourse();
+        model.addAttribute("lesson", lesson);
         return "main";
     }
     @PostMapping("allEvents/")
@@ -28,6 +32,21 @@ public class ControlleurPage {
         // qexec.close();
 
         List<Event> events = GetRDF.GetAllEvent();
+        model.addAttribute("events", events);
+        return "allEvents";
+    }
+
+    @PostMapping("EventsSainte/")
+    public String allEventsSainte(Model model)
+    {
+        List<Event> events = GetRDF.GetEventSainte();
+        model.addAttribute("events", events);
+        return "allEvents";
+    }
+    @PostMapping("NotEventsSainte/")
+    public String allNotEventsSainte(Model model)
+    {
+        List<Event> events = GetRDF.GetEventNotInSainte();
         model.addAttribute("events", events);
         return "allEvents";
     }
