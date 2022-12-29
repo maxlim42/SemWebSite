@@ -31,7 +31,7 @@ public class GetRDF {
                     String lastsubject = "";
                     Event event = new Event();
                     for (Object stat:stats) {
-//                        System.out.println(stat);
+                        System.out.println(stat);
                         String subject = stat.toString().split(",")[0].replace("[","").trim();
                         String predicate = stat.toString().split(",")[1].trim();
                         String object = stat.toString().split(",")[2].replace("]","").trim();
@@ -45,15 +45,23 @@ public class GetRDF {
                             }
                         }
 
-                        if(!subject.equals(lastsubject)){
-                            lastsubject = subject;
-                            if(event.Name != null && event.StartDate != null && event.EndDate != null){
-                                events.add(event);
+                        if(!subject.equals(lastsubject) && lastsubject != ""){
+
+                            if(event.Name == null || event.Name.contains("chevalier"))
+                            {
+                                int a =5;
                             }
-                            event = new Event();
+                            if(event.Categorie != null
+                                    && event.Description != null
+                                    && event.EndDate != null
+                                    && event.StartDate != null
+                                    && event.Name != null
+                                    && event.Location != null
+                                    && event.Organizer != null){
+                                events.add(event);
+                                event = new Event();
+                            }
                         }
-                        else{
-                            lastsubject = subject;
 
                             if(predicate.contains("additionalType")){
                                 String[] objectSplit = object.split("/");
@@ -71,9 +79,15 @@ public class GetRDF {
                                 event.Location = object.replace("\"", "").trim();
                             }
                             if(predicate.contains("label")){
-                                event.Name = object.replace("\"", "").trim();
+                                event.Name = object.replace("\"", "").replace("]", "").trim();
                             }
-                        }
+                            if(predicate.contains("organizer")){
+                                event.Organizer = object.replace("\"", "").trim();
+                            }
+                            if(predicate.contains("description")){
+                                event.Description = object.replace("\"", "").replace("]","").trim();
+                            }
+                        lastsubject = subject;
                     }
 
                 } finally {
@@ -91,9 +105,24 @@ public class GetRDF {
         List<Event> eventsSainte = events.stream().filter(o -> o.Location != null && o.Location.equals("Saint-Etienne")).toList();
         return eventsSainte;
     }
+    public static List<Event> GetEventSainteNotCourse(){
+        List<Event> events = GetAllEvent();
+        List<Event> eventsSainte = events.stream().filter(o -> o.Location != null && o.Location.equals("Saint-Etienne") && o.Categorie != null && !o.Categorie.equals("EducationEvent")).toList();
+        return eventsSainte;
+    }
     public static List<Event> GetEventNotInSainte(){
         List<Event> events = GetAllEvent();
         List<Event> eventsSainte = events.stream().filter(o ->o.Location != null && !o.Location.equals("Saint-Etienne")).toList();
+        return eventsSainte;
+    }
+    public static List<Event> GetEventNotCourse(){
+        List<Event> events = GetAllEvent();
+        List<Event> eventsSainte = events.stream().filter(o ->o.Categorie != null && !o.Categorie.equals("EducationEvent")).toList();
+        return eventsSainte;
+    }
+    public static List<Event> GetEventCourse(){
+        List<Event> events = GetAllEvent();
+        List<Event> eventsSainte = events.stream().filter(o ->o.Categorie != null && o.Categorie.equals("EducationEvent")).toList();
         return eventsSainte;
     }
 

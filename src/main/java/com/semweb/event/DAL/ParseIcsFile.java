@@ -2,7 +2,6 @@ package com.semweb.event.DAL;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -13,7 +12,6 @@ import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.model.Component;
 import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.property.CalScale;
-import net.fortuna.ical4j.model.property.ProdId;
 import net.fortuna.ical4j.model.property.Version;
 
 
@@ -22,8 +20,6 @@ public class ParseIcsFile {
  public String getCalInfoFromIcs(File file) throws Exception {
 
   net.fortuna.ical4j.model.Calendar calendar = new net.fortuna.ical4j.model.Calendar();
-  calendar.getProperties().add(
-    new ProdId("-//Ben Fortuna//iCal4j 1.0//EN"));
   calendar.getProperties().add(Version.VERSION_2_0);
   calendar.getProperties().add(CalScale.GREGORIAN);
 
@@ -38,7 +34,7 @@ public class ParseIcsFile {
 
    for (Iterator j = component.getProperties().iterator(); j.hasNext();) {
     try {
-     String startdate = null, enddate = null, event = null;
+     String startdate = null, enddate = null, event = null, description = null, location = null;
      Property property = (Property) j.next();
      if ("DTSTART".equals(property.getName())) {
       startdate = property.getValue();
@@ -55,6 +51,14 @@ public class ParseIcsFile {
       calenderinfo.put("event", event);
      }
 
+     if ("DESCRIPTION".equals(property.getName())) {
+      description = property.getValue();
+      calenderinfo.put("description", description);
+     }
+     if ("LOCATION".equals(property.getName())) {
+      location = property.getValue();
+      calenderinfo.put("location", location);
+     }
      if (!calenderinfo.isEmpty()) {
       if (calenderinfo.get("event") != null) {
        result.add(calenderinfo);
@@ -62,7 +66,7 @@ public class ParseIcsFile {
      }
 
     } catch (Exception ex) {
-
+      System.out.println(ex);
     }
    }
   }

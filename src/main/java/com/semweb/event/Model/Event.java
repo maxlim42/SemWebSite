@@ -11,4 +11,6 @@ public class Event {
     public String Categorie;
     public LocalDateTime StartDate;
     public LocalDateTime EndDate;
+    public String Description;
+    public String Organizer;
 }

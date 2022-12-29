@@ -22,7 +22,6 @@ public class EventApplication {
     public static Boolean SendRDF = false;
 	public static void main(String[] args) {
 		SpringApplication.run(EventApplication.class, args);
-        
         if(SendRDF){
             ParseIcsFile cusr = new ParseIcsFile();
             File file = new File("src\\main\\java\\com\\semweb\\event\\Calendrier\\ADECal.ics");
@@ -37,8 +36,9 @@ public class EventApplication {
             Convert.CalendarToRDF(calendar +"\n");
             
             Send.TurtleFile();
-        }	
-        GetRDF.GetNextCourse();
+        }
+
+        GetRDF.GetAllEvent();
 	}
 
 }

@@ -50,5 +50,28 @@ public class ControlleurPage {
         model.addAttribute("events", events);
         return "allEvents";
     }
-    
+
+    @PostMapping("NotCourse/")
+    public String allNotCourse(Model model)
+    {
+        List<Event> events = GetRDF.GetEventNotCourse();
+        model.addAttribute("events", events);
+        return "allEvents";
+    }
+
+    @PostMapping("Course/")
+    public String allCourse(Model model)
+    {
+        List<Event> events = GetRDF.GetEventCourse();
+        model.addAttribute("events", events);
+        return "allEvents";
+    }
+
+    @PostMapping("EventsSainteNotCourse/")
+    public String allEventsSainteNotCourse(Model model)
+    {
+        List<Event> events = GetRDF.GetEventSainteNotCourse();
+        model.addAttribute("events", events);
+        return "allEvents";
+    }
 }
