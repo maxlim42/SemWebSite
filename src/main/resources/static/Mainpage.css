@@ -7,3 +7,16 @@
     margin-left: 10%;
     margin-bottom: 10px;
 }
+
+table {
+        margin: auto;
+        margin-top: 5%;
+        border: medium solid #000000;
+        width: 50%;
+        }
+td, th {
+    border: thin solid #6495ed;
+    margin: 5px;
+    width: 25%;
+    text-align: center;
+}
