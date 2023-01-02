@@ -1,16 +1,26 @@
-#button {
-  float: right;
-  margin-right: 94%;
+body{
+    background-color: lightgrey;
+}
+
+form {
+  margin-top: 1%;
+  margin-left: 1%;
 }
 
 #point {
     margin-left: 10%;
-    margin-bottom: 10px;
+    margin-bottom: 10%;
+}
+
+p {
+     margin: auto;
+     margin-top: 1%;
+     width: 50%;
 }
 
 table {
         margin: auto;
-        margin-top: 5%;
+        margin-top: 1%;
         border: medium solid #000000;
         width: 50%;
         }

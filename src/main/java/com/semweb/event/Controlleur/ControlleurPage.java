@@ -41,14 +41,14 @@ public class ControlleurPage {
     {
         List<Event> events = GetRDF.GetEventSainte();
         model.addAttribute("events", events);
-        return "allEvents";
+        return "SainteEvents";
     }
     @PostMapping("NotEventsSainte/")
     public String allNotEventsSainte(Model model)
     {
         List<Event> events = GetRDF.GetEventNotInSainte();
         model.addAttribute("events", events);
-        return "allEvents";
+        return "notSainteEvents";
     }
 
     @PostMapping("NotCourse/")
@@ -56,7 +56,7 @@ public class ControlleurPage {
     {
         List<Event> events = GetRDF.GetEventNotCourse();
         model.addAttribute("events", events);
-        return "allEvents";
+        return "NotCourseEvent";
     }
 
     @PostMapping("Course/")
@@ -64,7 +64,7 @@ public class ControlleurPage {
     {
         List<Event> events = GetRDF.GetEventCourse();
         model.addAttribute("events", events);
-        return "allEvents";
+        return "CourseEvent";
     }
 
     @PostMapping("EventsSainteNotCourse/")
@@ -72,6 +72,6 @@ public class ControlleurPage {
     {
         List<Event> events = GetRDF.GetEventSainteNotCourse();
         model.addAttribute("events", events);
-        return "allEvents";
+        return "SainteEventsNotCourse";
     }
 }

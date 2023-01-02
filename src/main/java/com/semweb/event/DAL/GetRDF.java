@@ -31,7 +31,7 @@ public class GetRDF {
                     String lastsubject = "";
                     Event event = new Event();
                     for (Object stat:stats) {
-                        System.out.println(stat);
+//                        System.out.println(stat);
                         String subject = stat.toString().split(",")[0].replace("[","").trim();
                         String predicate = stat.toString().split(",")[1].trim();
                         String object = stat.toString().split(",")[2].replace("]","").trim();
