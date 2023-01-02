@@ -1,4 +1,4 @@
-body{
+body {
     background-color: lightgrey;
 }
 
@@ -23,6 +23,7 @@ table {
         margin-top: 1%;
         border: medium solid #000000;
         width: 50%;
+        background-color: white;
         }
 td, th {
     border: thin solid #6495ed;
