@@ -11,6 +11,12 @@ import com.semweb.event.Model.Event;
 
 
 public class GetEventAlentoor {
+
+    /**
+     * Cette fonction permet de récupérer des évènements depuis un site web
+     * @param url l'URL du site Alentoor
+     * @return List<Event> la liste des évènements sur Alentoor
+     */
     public static List<Event> GetData(String url) {
         List<Event> eventsAlentoor = new ArrayList<Event>();
 
@@ -39,7 +45,7 @@ public class GetEventAlentoor {
             }
             // item-spotlight
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println(e);
         }
         return eventsAlentoor;
     }

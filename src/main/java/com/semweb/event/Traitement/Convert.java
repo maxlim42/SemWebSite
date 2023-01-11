@@ -12,6 +12,10 @@ import org.apache.jena.vocabulary.RDFS;
 
 public class Convert {
 
+    /**
+     * Cette fonction permet de transformer un calendrier en fichiers RDF
+     * @param calendar le calendrier ADECal.ics transformé en String
+     */
     public static void CalendarToRDF(String calendar){
 
         String[] calendarSplit = calendar.split(", \\{");
@@ -81,12 +85,18 @@ public class Convert {
         CreateEvent("Marche bio Albert Thomas",  "FoodEvent","2022-12-07T07:00:00", "2022-12-07T12:00:00", "Saint-Etienne", "Mairie de Saint-Etienne", "Marché de produits alimentaires.");
         CreateEvent("Soiree Big Band",  "MusicEvent","2022-12-16T20:30:00", "2022-12-16T23:30:00", "Saint-Etienne", "Mairie de Saint-Etienne", "Concert");
         CreateEvent("Les Chevaliers du Fiel - Travaux d'enfer",  "TheaterEvent","2023-02-25T20:00:00", "2023-02-25T23:30:00", "Chambery", "Non renseigné", "Les Chevaliers du Fiel nous embarquent dans une histoire encore plus dingue !");
-        
-        // model.write(System.out, "turtle");
-        
-        // return model;
     }
 
+    /**
+     * Cette fonction permet de créer un fichier RDF en entrant les informations de l'évènement
+     * @param name nom de l'évènement
+     * @param type le type d'évènement
+     * @param startDate la date de début
+     * @param endDate la date de fin
+     * @param location le lieu
+     * @param organisateur l'organisateur
+     * @param description une description de l'évènement
+     */
     public static void CreateEvent(String name, String type, String startDate, String endDate, String location, String organisateur, String description){
        
         Model model = ModelFactory.createDefaultModel();
@@ -123,8 +133,9 @@ public class Convert {
     }
     
     /**
-     * @param date
-     * @return
+     * Cette fonction transforme une date sous forme "20221209T120441Z" en date sous forme "2022-12-09T12:04:41"
+     * @param date une date du calendrier
+     * @return String sous forme year-month-dayThour:min:sec
      */
     public static String ConvertDate(String date)
     {

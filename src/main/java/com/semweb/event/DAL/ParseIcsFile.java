@@ -17,6 +17,12 @@ import net.fortuna.ical4j.model.property.Version;
 
 public class ParseIcsFile {
 
+ /**
+  * Cette fonction permet de lire et de transformer un fichier ics en texte
+  * @param file le fichier ics
+  * @return String le calendrier tiré du ics
+  * @throws Exception
+  */
  public String getCalInfoFromIcs(File file) throws Exception {
 
   net.fortuna.ical4j.model.Calendar calendar = new net.fortuna.ical4j.model.Calendar();

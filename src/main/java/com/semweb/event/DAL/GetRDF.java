@@ -13,6 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GetRDF {
+
+    /**
+     *
+     * @return List<Event> la liste de tous les évènements
+     */
     public static List<Event> GetAllEvent(){
 
         List<Event> events = new ArrayList<Event>();
@@ -100,32 +105,61 @@ public class GetRDF {
         }
         return events;
     }
+
+    /**
+     *
+     * @return List<Event> la liste des évènements étant sur Saint-Étienne
+     */
     public static List<Event> GetEventSainte(){
         List<Event> events = GetAllEvent();
         List<Event> eventsSainte = events.stream().filter(o -> o.Location != null && o.Location.equals("Saint-Etienne")).toList();
         return eventsSainte;
     }
+
+    /**
+     *
+     * @return List<Event> la liste des évènements étant sur Saint-Étienne, mais n'étant pas un cours
+     */
     public static List<Event> GetEventSainteNotCourse(){
         List<Event> events = GetAllEvent();
-        List<Event> eventsSainte = events.stream().filter(o -> o.Location != null && o.Location.equals("Saint-Etienne") && o.Categorie != null && !o.Categorie.equals("EducationEvent")).toList();
-        return eventsSainte;
-    }
-    public static List<Event> GetEventNotInSainte(){
-        List<Event> events = GetAllEvent();
-        List<Event> eventsSainte = events.stream().filter(o ->o.Location != null && !o.Location.equals("Saint-Etienne")).toList();
-        return eventsSainte;
-    }
-    public static List<Event> GetEventNotCourse(){
-        List<Event> events = GetAllEvent();
-        List<Event> eventsSainte = events.stream().filter(o ->o.Categorie != null && !o.Categorie.equals("EducationEvent")).toList();
-        return eventsSainte;
-    }
-    public static List<Event> GetEventCourse(){
-        List<Event> events = GetAllEvent();
-        List<Event> eventsSainte = events.stream().filter(o ->o.Categorie != null && o.Categorie.equals("EducationEvent")).toList();
-        return eventsSainte;
+        List<Event> eventsSainteNotCourse = events.stream().filter(o -> o.Location != null && o.Location.equals("Saint-Etienne") && o.Categorie != null && !o.Categorie.equals("EducationEvent")).toList();
+        return eventsSainteNotCourse;
     }
 
+    /**
+     *
+     * @return List<Event> la liste des évènements n'étant pas sur Saint-Étienne
+     */
+    public static List<Event> GetEventNotInSainte(){
+        List<Event> events = GetAllEvent();
+        List<Event> eventsNotInSainte = events.stream().filter(o ->o.Location != null && !o.Location.equals("Saint-Etienne")).toList();
+        return eventsNotInSainte;
+    }
+
+    /**
+     *
+     * @return List<Event> la liste des évènements n'étant pas des cours
+     */
+    public static List<Event> GetEventNotCourse(){
+        List<Event> events = GetAllEvent();
+        List<Event> eventsNotCourse = events.stream().filter(o ->o.Categorie != null && !o.Categorie.equals("EducationEvent")).toList();
+        return eventsNotCourse;
+    }
+
+    /**
+     *
+     * @return List<Event> la liste des évènements étant des cours
+     */
+    public static List<Event> GetEventCourse(){
+        List<Event> events = GetAllEvent();
+        List<Event> eventsCourse = events.stream().filter(o ->o.Categorie != null && o.Categorie.equals("EducationEvent")).toList();
+        return eventsCourse;
+    }
+
+    /**
+     * Cette fonction renvoit le prochain évènement basé sur l'heure actuelle
+     * @return Event le prochain évènement
+     */
     public static Event GetNextCourse(){
 
         LocalDateTime now = LocalDateTime.now();
@@ -149,6 +183,10 @@ public class GetRDF {
         }
         return lesson;
     }
+
+    /**
+     * Cette fonction permet de supprimer tous nos fichier de la plateforme territoire
+     */
     public static void Delete()
     {
      try (RDFConnection conn = RDFConnection.connectPW(

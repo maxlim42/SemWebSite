@@ -13,7 +13,11 @@ import java.util.List;
 
 @Controller
 public class ControlleurPage {
-    
+    /**
+     * Ces fonctions gèrent les changements de pages HTML
+     * @param model le modèle content la liste des RDF
+     * @return la page HTML correspondante
+     */
     @RequestMapping("/")
     public String mainredirection(Model model){
         Event lesson = GetRDF.GetNextCourse();
@@ -23,14 +27,6 @@ public class ControlleurPage {
     @PostMapping("allEvents/")
     public String allEventsDirection(Model model)
     {
-        // String queryString = "SELECT ?subject ?predictat ?object \n WHERE { \n ?subject ?predictat ?object \n}";
-        // Query query = QueryFactory.create(queryString);
-        // QueryEngineHTTP qexec = new QueryEngineHTTP("https://territoire.emse.fr/ldp/maximeaurelien/", query );
-
-        // ResultSet results = qexec.execSelect();
-        // List resultsList = ResultSetFormatter.toList(results);
-        // qexec.close();
-
         List<Event> events = GetRDF.GetAllEvent();
         model.addAttribute("events", events);
         return "allEvents";

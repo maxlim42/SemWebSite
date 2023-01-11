@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 
 public class Send {
     /**
-     * 
+     * Fonction permettant de récupérer tout nos fichiers et des les envoyer sur la plateforme territoire
      */
     public static void TurtleFile() {
 
