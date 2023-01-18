@@ -11,4 +11,6 @@ Il faut que le booléen SendRDF soit à true dans EventApplication.java.
 
 Les fichier ttl sont présent dans le dossier "Files".
 
+Le fichier ".ics" du calendrier est présent dans le dossier "Calendrier". 
+
 Le dossier ressources contient les fichiers html et css du site internet.
