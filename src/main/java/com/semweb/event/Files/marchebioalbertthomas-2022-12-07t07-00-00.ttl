@@ -1,0 +1,16 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<>      rdf:type                        <https://schema.org/Event> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Marche bio Albert Thomas" ;
+        <http://www.w3.org/Event/endDate>
+                "2022-12-07T12:00:00"^^xsd:dateTime ;
+        <http://www.w3.org/Event/startDate>
+                "2022-12-07T07:00:00"^^xsd:dateTime ;
+        <https://schema.org/additionalType>
+                <https://schema.org/FoodEvent> ;
+        <https://schema.org/description>
+                "Marché de produits alimentaires." ;
+        <https://schema.org/location>   "Saint-Etienne" ;
+        <https://schema.org/organizer>  "Mairie de Saint-Etienne" .

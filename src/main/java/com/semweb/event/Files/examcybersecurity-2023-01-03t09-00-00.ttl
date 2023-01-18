@@ -1,0 +1,16 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<>      rdf:type                        <https://schema.org/Event> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "EXAM Cybersecurity" ;
+        <http://www.w3.org/Event/endDate>
+                "2023-01-03T11:00:00"^^xsd:dateTime ;
+        <http://www.w3.org/Event/startDate>
+                "2023-01-03T09:00:00"^^xsd:dateTime ;
+        <https://schema.org/additionalType>
+                <https://schema.org/EducationEvent> ;
+        <https://schema.org/description>
+                "  M2 CPS2 MULLER GUILLAUME " ;
+        <https://schema.org/location>   "Saint-Etienne" ;
+        <https://schema.org/organizer>  "EMSE" .
